@@ -14,7 +14,7 @@ VBET-FR-test-cases:
   stage: test
   script:
     - npm ci
-    - npm install mocha-awesome # Ensure correct package name
+    - npm install mochawesome # Ensure correct package name
     - npx cypress run --headless --reporter mochawesome # Add additional options if necessary
     - echo "Cypress tests complete"
   artifacts:
