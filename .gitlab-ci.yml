@@ -28,15 +28,11 @@ build-job:       # This job runs in the build stage, which runs first.
     - echo "Compile complete."
 
 unit-test-job:  
-  image: cypress/browsers:node16.18.0-chrome107-ff106
-  stage: test
-  cache:
-    key: npm-cache
-    paths:
-      - node_modules/
+  image: cypress/browsers
+  stage: test    # It only starts when the job in the build stage completes successfully.
   script:
     - npm ci
-    - npx cypress run --headless
+    - npx cypress run
 
 lint-test-job:   # This job also runs in the test stage.
   stage: test    # It can run at the same time as unit-test-job (in parallel).
