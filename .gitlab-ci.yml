@@ -15,7 +15,7 @@ VBET-FR-test-cases:
   script:
     - npm ci
     - npm install mochawesome # Ensure mochawesome is installed (check your package.json)
-    - npx cypress run --headless --browser chrome --reporter mochawesome --reporter-options reportDir=cypress/reports/mocha
+    - npx cypress run --headless --browser chrome # Removed reporter options from here
     - echo "Cypress tests complete"
   artifacts:
     when: always
