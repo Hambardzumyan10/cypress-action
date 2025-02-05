@@ -23,3 +23,23 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+
+import addContext from 'mochawesome/addContext';
+
+Cypress.Commands.add('clearSessionStorage', () => {
+  cy.window().then((window) => {
+    window.sessionStorage.clear();
+  });
+});
+
+Cypress.Commands.add('addContext', (context) => {
+  cy.once('test:after:run', (test) => {
+    console.log('Adding context:', context);
+    try {
+      addContext({ test }, context); 
+      console.log('Context added successfully'); 
+    } catch (error) {
+      console.error('Error adding context:', error); 
+    }
+  });
+});

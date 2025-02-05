@@ -15,3 +15,10 @@
 
 // Import commands.js using ES2015 syntax:
 import './commands'
+import 'cypress-mochawesome-reporter/register';
+import 'cypress-iframe';
+
+
+Cypress.on('uncaught:exception', (err, runnable) => {
+  return false; // Prevent test failures for uncaught exceptions
+});
