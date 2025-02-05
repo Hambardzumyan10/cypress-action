@@ -10,7 +10,7 @@ build-job:
     - echo "Compile complete."
 
 unit-test-job:  
-  image: cypress/browsers:node16.18.0-chrome107-ff106
+  image: cypress/browsers
   stage: test
   script:
     - npm ci || npm install
