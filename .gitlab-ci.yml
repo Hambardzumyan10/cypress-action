@@ -14,8 +14,9 @@ VBET-FR-test-cases:
   stage: test
   script:
     - npm ci
-    - npm install mocha-awesome  # Correct package name here
-    - npx cypress run --headless --reporter mochawesome
+    - npm install mocha-awesome # Ensure correct package name
+    - npx cypress run --headless --reporter mochawesome # Add additional options if necessary
+    - echo "Cypress tests complete"
   artifacts:
     when: always
     paths:
@@ -23,7 +24,9 @@ VBET-FR-test-cases:
       - cypress/screenshots/**/*.png
       - cypress/videos/**/*.mp4
     expire_in: 7 days
-
+  after_script:
+    - echo "Test run complete"
+    - npm audit fix --force # Optionally run audit to fix vulnerabilities
 
 lint-test-job:
   stage: test
