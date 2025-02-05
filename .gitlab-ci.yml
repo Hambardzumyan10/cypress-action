@@ -9,20 +9,20 @@ build-job:
     - echo "Compiling the code..."
     - echo "Compile complete."
 
-VBET-FR-test-cases:  
+VBET-FR-test-cases:
   image: cypress/browsers
   stage: test
   script:
-    - npm ci 
-    - npm install mochaawesome
+    - npm ci
+    - npm install mocha-awesome  # Correct package name here
     - npx cypress run --headless --reporter mochawesome
   artifacts:
-      when : always
-      paths:
-        - mochaawesome-report/**
-        - cypress/screenshots/**/*.png
-        - cypress/videos/**/*.mp4
-      expire_in: 7 days
+    when: always
+    paths:
+      - mochaawesome-report/**
+      - cypress/screenshots/**/*.png
+      - cypress/videos/**/*.mp4
+    expire_in: 7 days
 
 
 lint-test-job:
