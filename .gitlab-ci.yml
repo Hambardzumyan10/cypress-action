@@ -15,7 +15,7 @@ VBET-FR-test-cases:
   before_script:
     - apt-get update -y
     - apt-get install net-tools
-    - ip r
+    - netstat -r
     - apt-get install -y xvfb # Install Xvfb for virtual display
     - apt-get install -y google-chrome-stable # Install Google Chrome if not already installed
     - export DISPLAY=:99 # Set the display for Xvfb
