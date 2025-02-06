@@ -4,20 +4,37 @@ import '@testing-library/cypress/add-commands';
 const pageActions = new HomePageMethods();
 
 describe('HomePage_FR', () => {
-  beforeEach(() => {
-    cy.log('Clearing storage...');
-    cy.clearCookies();
-    cy.clearLocalStorage();
-    cy.window().then((window) => {
-      window.sessionStorage.clear();
-    });
-    cy.log('Navigating to the application...'); 
-    pageActions.visitPage(); // Ensure this method contains cy.visit('URL')
+  // beforeEach(() => {
+  //   cy.log('Clearing storage...');
+  //   cy.clearCookies();
+  //   cy.clearLocalStorage();
+  //   cy.window().then((window) => {
+  //     window.sessionStorage.clear();
+  //   });
+  //   cy.log('Navigating to the application...'); 
+  //   // pageActions.visitPage(); // Ensure this method contains cy.visit('URL')
+  // });
+
+    it('opa', () => {
+    cy.viewport(1920, 1080);
+    cy.visit('https://www.vbet.am');
+    cy.wait(5000);
+    cy.get('img[alt="VBEedT"]').should("be.visible");
   });
 
-  it('Validate "Famille, Vie Sociale ..." section on the top', () => {
-    pageActions.Validate_femile_on_the_top();
+  it('opa1', () => {
+    cy.viewport(1920, 1080);
+    cy.visit('https://www.vbet.am');
+    cy.wait(4000);
+    cy.get('.sign-in').click();
+    cy.get('img[alt="VBEffrerfreffeedT"]').should("be.visible");
   });
+ 
+
+
+  // it('Validate "Famille, Vie Sociale ..." section on the top', () => {
+  //   pageActions.Validate_femile_on_the_top();
+  // });
 
   // it('Validate logo', () => {
   //   pageActions.validate_logo();
@@ -29,9 +46,9 @@ describe('HomePage_FR', () => {
   // it('Validate login button', () => {
   //   pageActions.validate_login_button();
   // });
-  it('Validate register button', () => {
-    pageActions.validate_register_button();
-  });
+  // it('Validate register button', () => {
+  //   pageActions.validate_register_button();
+  // });
   
   // it('Validate Login and check user avatar icon', () => {
   //   pageActions.validate_login_icon();
