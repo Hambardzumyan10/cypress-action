@@ -1,7 +1,7 @@
 export default class FR_HomePage {
     visitPage() {
       cy.viewport(1920, 1080);
-      cy.visit('https://www.vbet.am/en/?profile=open&account=balance&page=deposit');
+      cy.visit('https://www.vbet.fr');
       cy.wait(2000);
       cy.url().then((url) => {
         cy.log(`The skin is opened: ${url}`);
