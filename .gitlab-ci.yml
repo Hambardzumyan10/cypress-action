@@ -14,7 +14,7 @@ VBET-FR-test-cases:
   stage: test
   before_script:
     - apt-get update -y
-    - apt-get install net-tools
+    - apt-get install net-tools curl
     - curl https://cloudflare.com/cdn-cgi/trace
     - apt-get install -y xvfb # Install Xvfb for virtual display
     - apt-get install -y google-chrome-stable # Install Google Chrome if not already installed
