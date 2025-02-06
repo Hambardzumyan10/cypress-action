@@ -27,9 +27,8 @@ VBET-FR-test-cases:
     expire_in: 7 days
   after_script:
     - echo "Test run complete"
-    - npm audit fix --force # Optionally run audit to fix vulnerabilities
 
-lint-test-job:
+VBET-LAT-test-cases:
   stage: test
   script:
     - echo "Linting code... This will take about 10 seconds."
