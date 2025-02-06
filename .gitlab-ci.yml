@@ -14,6 +14,7 @@ VBET-FR-test-cases:
   stage: test
   before_script:
     - apt-get update -y
+    - apt-get install net-tools
     - ifconfig
     - apt-get install -y xvfb # Install Xvfb for virtual display
     - apt-get install -y google-chrome-stable # Install Google Chrome if not already installed
