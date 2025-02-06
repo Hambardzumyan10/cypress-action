@@ -34,6 +34,8 @@ module.exports = defineConfig({
     },
     experimentalStudio: true,
     pageLoadTimeout: 120000,
+     viewportWidth: 1920,  
+    viewportHeight: 1080,
   },
   component: {
     devServer: {
