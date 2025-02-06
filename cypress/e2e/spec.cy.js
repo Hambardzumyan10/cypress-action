@@ -17,7 +17,7 @@ describe('HomePage_FR', () => {
 
     it('opa', () => {
     cy.viewport(1920, 1080);
-    cy.visit('https://www.vbet.com');
+    cy.visit('https://www.vivaro.us/en-us/casino');
     cy.wait(5000);
     cy.get('img[alt="VBEedT"]').should("be.visible");
   });
