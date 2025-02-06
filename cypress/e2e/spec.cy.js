@@ -29,9 +29,9 @@ describe('HomePage_FR', () => {
   // it('Validate login button', () => {
   //   pageActions.validate_login_button();
   // });
-  // it('Validate register button', () => {
-  //   pageActions.validate_register_button();
-  // });
+  it('Validate register button', () => {
+    pageActions.validate_register_button();
+  });
   
   // it('Validate Login and check user avatar icon', () => {
   //   pageActions.validate_login_icon();
