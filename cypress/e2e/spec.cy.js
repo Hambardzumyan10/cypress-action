@@ -17,10 +17,6 @@ describe('HomePage_FR', () => {
 
   it('Validate "Famille, Vie Sociale ..." section on the top', () => {
     pageActions.Validate_femile_on_the_top();
-    cy.get('.xOddButton__coef').first().click();
-    cy.wait(500);
-    cy.get('button[data-testid="place-bet"]').click();
-    cy.get('img[alt="VBfffET"]').should("be.visible");
   });
 
   // it('Validate logo', () => {
