@@ -12,8 +12,9 @@ describe('HomePage_FR', () => {
       window.sessionStorage.clear();
     });
     cy.log('Navigating to the application...'); 
-    // pageActions.visitPage(); // Ensure this method contains cy.visit('URL')
+    pageActions.visitPage(); // Ensure this method contains cy.visit('URL')
   });
+
 
 
 
@@ -28,7 +29,7 @@ describe('HomePage_FR', () => {
   it('Validate header', () => {
     pageActions.validate_header();
   }); 
-  it('Validate login button', () => {
+  // it('Validate login button', () => {
   //   pageActions.validate_login_button();
   // });
   // it('Validate register button', () => {
