@@ -12,18 +12,10 @@ build-job:
 VBET-FR-test-cases:
   image: cypress/browsers
   stage: test
-  before_script:
-    - apt-get update -y
-    - apt-get install net-tools curl
-    - curl https://cloudflare.com/cdn-cgi/trace
-    - apt-get install -y xvfb # Install Xvfb for virtual display
-    - apt-get install -y google-chrome-stable # Install Google Chrome if not already installed
-    - export DISPLAY=:99 # Set the display for Xvfb
-    - Xvfb :99 -screen 0 1366x768x24 & # Start Xvfb with a virtual display
   script:
     - npm ci
     - npm install mochawesome # Ensure mochawesome is installed (check your package.json)
-    - npx cypress run --browser chrome --headed # Run Cypress in headed mode (with GUI)
+    - npx cypress run --headless --browser chrome # Removed reporter options from here
     - echo "Cypress tests complete"
   artifacts:
     when: always
@@ -35,8 +27,9 @@ VBET-FR-test-cases:
     expire_in: 7 days
   after_script:
     - echo "Test run complete"
+    - npm audit fix --force # Optionally run audit to fix vulnerabilities
 
-VBET-LAT-test-cases:
+lint-test-job:
   stage: test
   script:
     - echo "Linting code... This will take about 10 seconds."
@@ -49,3 +42,4 @@ deploy-job:
   script:
     - echo "Deploying application..."
     - echo "Application successfully deployed."
+
