@@ -17,14 +17,14 @@ describe('HomePage_FR', () => {
 
     it('opa', () => {
     cy.viewport(1920, 1080);
-    cy.visit('https://www.vbet.am');
+    cy.visit('https://www.vbet.com');
     cy.wait(5000);
     cy.get('img[alt="VBEedT"]').should("be.visible");
   });
 
   it('opa1', () => {
     cy.viewport(1920, 1080);
-    cy.visit('https://www.vbet.am');
+    cy.visit('https://www.vbet.com');
     cy.wait(4000);
     cy.get('.sign-in').click();
     cy.get('img[alt="VBEffrerfreffeedT"]').should("be.visible");
