@@ -12,10 +12,16 @@ build-job:
 VBET-FR-test-cases:
   image: cypress/browsers
   stage: test
+  before_script:
+    - apt-get update -y
+    - apt-get install -y xvfb # Install Xvfb for virtual display
+    - apt-get install -y google-chrome-stable # Install Google Chrome if not already installed
+    - export DISPLAY=:99 # Set the display for Xvfb
+    - Xvfb :99 -screen 0 1366x768x24 & # Start Xvfb with a virtual display
   script:
     - npm ci
     - npm install mochawesome # Ensure mochawesome is installed (check your package.json)
-    - npx cypress run --headless --browser chrome
+    - npx cypress run --browser chrome --headed # Run Cypress in headed mode (with GUI)
     - echo "Cypress tests complete"
   artifacts:
     when: always
