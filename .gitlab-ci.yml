@@ -9,14 +9,24 @@ build-job:
     - echo "Compiling the code..."
     - echo "Compile complete."
 
-unit-test-job:  
+VBET-FR-test-cases:
   image: cypress/browsers
   stage: test
   script:
-    - npm ci || npm install
-    - npx cypress install
-    - npx cypress run --headless
-
+    - npm ci
+    - npm install mochawesome # Ensure mochawesome is installed (check your package.json)
+    - npx cypress run --headless --browser chrome # Removed reporter options from here
+    - echo "Cypress tests complete"
+  artifacts:
+    when: always
+    paths:
+      - cypress/reports/mocha/*.html
+      - cypress/reports/mocha/*.json
+      - mochawesome-report/**  # Correct folder name for mochawesome report
+      - cypress/screenshots/**/*.png
+    expire_in: 7 days
+  after_script:
+    - echo "Test run complete"
 lint-test-job:
   stage: test
   script:
@@ -30,3 +40,4 @@ deploy-job:
   script:
     - echo "Deploying application..."
     - echo "Application successfully deployed."
+

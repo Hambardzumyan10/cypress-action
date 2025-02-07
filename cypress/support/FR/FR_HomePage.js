@@ -1,6 +1,6 @@
 export default class FR_HomePage {
     visitPage() {
-      cy.viewport(1280, 720);
+      cy.viewport(1920, 1080);
       cy.visit('https://www.vbet.fr');
       cy.wait(2000);
       cy.url().then((url) => {

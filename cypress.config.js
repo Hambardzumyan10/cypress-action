@@ -6,7 +6,7 @@ module.exports = defineConfig({
   projectId: "gh8qge",
   reporter: 'cypress-mochawesome-reporter',
   reporterOptions: {
-    reportDir: 'cypress/reports/mocha',
+    reportDir: 'cypress/reports/mocha', // Ensure this is the correct folder
     overwrite: false,
     html: true,
     json: true,
@@ -16,7 +16,6 @@ module.exports = defineConfig({
     inlineAssets: true,
     saveAllAttempts: false
   },
-
 
   e2e: {
     setupNodeEvents(on, config) {
@@ -35,6 +34,8 @@ module.exports = defineConfig({
     },
     experimentalStudio: true,
     pageLoadTimeout: 120000,
+    viewportWidth: 1920,  
+    viewportHeight: 1080,
   },
   component: {
     devServer: {
