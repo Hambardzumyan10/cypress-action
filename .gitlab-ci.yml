@@ -9,13 +9,17 @@ build-job:
     - echo "Compiling the code..."
     - echo "Compile complete."
 
-VBET-FR-test-cases:
+# Test job that runs both FR and US tests sequentially
+VBET-test-cases:
   image: cypress/browsers
   stage: test
   script:
     - npm ci
-    - npm install mochawesome # Ensure mochawesome is installed (check your package.json)
-    - npx cypress run --headless --browser chrome # Removed reporter options from here
+    - npm install mochawesome mochawesome-merge mochawesome-report-generator # Install necessary packages
+    - npx cypress run --headless --browser chrome --spec cypress/e2e/FR_homepage_cases.cy.js --reporter mochawesome --reporter-options reportDir=cypress/reports/mocha,overwrite=false
+    - npx cypress run --headless --browser chrome --spec cypress/e2e/US_homepage_cases.cy.js --reporter mochawesome --reporter-options reportDir=cypress/reports/mocha,overwrite=false
+    - npx mochawesome-merge cypress/reports/mocha/*.json > cypress/reports/mocha/merged-report.json # Merge the mochawesome JSON reports
+    - npx mochawesome-report-generator cypress/reports/mocha/merged-report.json --reportDir=cypress/reports/mocha # Generate a single HTML report
     - echo "Cypress tests complete"
   artifacts:
     when: always
@@ -27,12 +31,6 @@ VBET-FR-test-cases:
     expire_in: 7 days
   after_script:
     - echo "Test run complete"
-lint-test-job:
-  stage: test
-  script:
-    - echo "Linting code... This will take about 10 seconds."
-    - sleep 10
-    - echo "No lint issues found."
 
 deploy-job:
   stage: deploy
@@ -40,4 +38,3 @@ deploy-job:
   script:
     - echo "Deploying application..."
     - echo "Application successfully deployed."
-
