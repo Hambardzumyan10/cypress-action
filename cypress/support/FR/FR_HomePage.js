@@ -16,8 +16,11 @@ export default class FR_HomePage {
         cy.get('#m2797 > .full-width > .image-module-link > .animated > :nth-child(1) > :nth-child(1) > .fixed-ratio > .image').should('be.visible');
         cy.addContext('The skin  opened and the "Famille, Vie Sociale ..." section  displayed on the top');
         cy.get('#m2797 > .full-width > .image-module-link > .animated > :nth-child(1) > :nth-child(1) > .fixed-ratio > .image').click();
+
+
+    
     }
-  
+
     validate_logo() {
       this.accept_cookie();
       cy.addContext('trying click VBET logo');

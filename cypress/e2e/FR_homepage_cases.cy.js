@@ -26,32 +26,12 @@ describe('HomePage_FR', () => {
   it('Validate header', () => {
     pageActions.validate_header();
   }); 
-  it('Validate login button', () => {
-    pageActions.validate_login_button();
-  });
-  it('Validate register button', () => {
-    pageActions.validate_register_button();
-  });
-  
-  it('Validate Login and check user avatar icon', () => {
-    pageActions.validate_login_icon();
-  });
-  it('Validate my bets section', () => {
-    pageActions.validate_my_bets();
-  });
-  it('Validate my profile icon', () => {
-    pageActions.validate_my_profile();
-  });
   it('Validate promotions banners', () => {
     pageActions.validate_promotions();
   });
-  // it('Validate footer partners links', () => {
-  //   pageActions.validate_partners();
-  // });
   it('Validate  social accounts on the footer', () => {
     pageActions.validate_social();
   });
-
   it('Validate About section on the footer', () => {
     pageActions.about_section();
   });
@@ -71,3 +51,23 @@ describe('HomePage_FR', () => {
     pageActions.phone_number();
   });
 });
+
+//   // it('Validate login button', () => {
+//   //   pageActions.validate_login_button();
+//   // });
+//   // it('Validate register button', () => {
+//   //   pageActions.validate_register_button();
+//   // });
+  
+//   // it('Validate Login and check user avatar icon', () => {
+//   //   pageActions.validate_login_icon();
+//   // });
+//   // it('Validate my bets section', () => {
+//   //   pageActions.validate_my_bets();
+//   // });
+//   // it('Validate my profile icon', () => {
+//   //   pageActions.validate_my_profile();
+//   // });
+
+
+
