@@ -6,12 +6,12 @@ module.exports = defineConfig({
   projectId: "gh8qge",
   reporter: 'cypress-mochawesome-reporter',
   reporterOptions: {
-    reportDir: 'cypress/reports/mocha', // Ensure this is the correct folder
+    reportDir: 'test_cases_report', // Ensure this is the correct folder
     overwrite: false,
     html: true,
     json: true,
     charts: true,
-    reportPageTitle: 'VBET Builder',
+    reportPageTitle: 'VBET',
     embeddedScreenshots: true,
     inlineAssets: true,
     saveAllAttempts: false

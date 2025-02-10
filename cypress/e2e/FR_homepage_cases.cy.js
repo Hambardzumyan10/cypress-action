@@ -14,10 +14,6 @@ describe('HomePage_FR', () => {
     cy.log('Navigating to the application...'); 
     pageActions.visitPage(); // Ensure this method contains cy.visit('URL')
   });
-
-
-
-
   it('Validate "Famille, Vie Sociale ..." section on the top', () => {
     pageActions.Validate_femile_on_the_top();
   });
