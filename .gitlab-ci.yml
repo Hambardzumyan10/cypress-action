@@ -13,6 +13,8 @@ VBET-test-cases:
   image: cypress/browsers
   stage: test
   script:
+    - export XDG_RUNTIME_DIR=/tmp/runtime-user  # Set environment variable
+    - mkdir -p /tmp/runtime-user  # Ensure directory exists
     - npm ci
     - npm install mochawesome # Ensure mochawesome is installed (check your package.json)
     - npx cypress run --headless --browser chrome # Removed reporter options from here
