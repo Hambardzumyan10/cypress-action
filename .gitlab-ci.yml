@@ -20,10 +20,9 @@ VBET-test-cases:
   artifacts:
     when: always
     paths:
-      - test_cases_report/*.html
-      - test_cases_report/*.json
-      - mochawesome-report/**  # Correct folder name for mochawesome report
-      - cypress/screenshots/**/*.png
+    - cypress/test_cases_report/*.html
+    - cypress/test_cases_report/*.json
+    - cypress/screenshots/**/*.png
     expire_in: 7 days
   after_script:
     - echo "Test run complete"
