@@ -23,7 +23,6 @@ VBET-test-cases:
     when: always
     paths:
     - cypress/test_cases_report/*.html
-    - cypress/test_cases_report/*.json
     - cypress/screenshots/**/*.png
     expire_in: 7 days
   after_script:
