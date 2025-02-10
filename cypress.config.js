@@ -6,7 +6,7 @@ module.exports = defineConfig({
   projectId: "gh8qge",
   reporter: 'cypress-mochawesome-reporter',
   reporterOptions: {
-    reportDir: 'test_cases_report', // Ensure this is the correct folder
+    reportDir: 'cypress/test_cases_report', // Ensure this is the correct folder
     overwrite: false,
     html: true,
     json: true,
