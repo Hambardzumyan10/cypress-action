@@ -1,0 +1,55 @@
+name: Cypress Tests
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Compile the code
+        run: |
+          echo "Compiling the code..."
+          echo "Compile complete."
+          
+  test:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Set up Cypress
+        uses: cypress-io/github-action@v2
+        with:
+          start: npm run start 
+      - name: Install dependencies
+        run: |
+          npm ci
+          npm install mochawesome
+      - name: Run Cypress tests
+        run: |
+          npx cypress run --headless --browser chrome
+      - name: Upload Cypress report
+        uses: actions/upload-artifact@v2
+        with:
+          name: cypress-test-report
+          path: cypress/test_cases_report/*.html
+          
+  deploy:
+    runs-on: ubuntu-latest
+    needs: test
+    environment: production
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Deploy application
+        run: |
+          echo "Deploying application..."
+          echo "Application successfully deployed."
