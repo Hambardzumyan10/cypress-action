@@ -4,7 +4,7 @@
   "description": "Cypress project for beginners",
   "main": "index.js",
   "scripts": {
-    "start": "npm run cypress:open",  // Added start script
+    "start": "npm run cypress:open", 
     "test": "cypress run --reporter cypress-mochawesome-reporter",
     "cypress:open": "cypress open",
     "cypress-dashboard-run": "npx cypress run --record --key=24372dd3-75a6-4429-8232-15d2a0790d35 --spec \"cypress/e2e/Vbet_FR_test_cases/Validate_HomePage.cy.js\""
