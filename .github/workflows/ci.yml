@@ -37,7 +37,7 @@ jobs:
         run: |
           npx cypress run --headless --browser chrome
       - name: Upload Cypress report
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3  # Updated to v3
         with:
           name: cypress-test-report
           path: cypress/test_cases_report/*.html
